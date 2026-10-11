@@ -1,0 +1,28 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "movbench"
+version = "0.1.0"
+description = "A move-only, memory-budgeted LLM kernel benchmark for AMD Zen 5"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+dependencies = ["capstone>=5.0.3,<6"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "ruff>=0.12,<1"]
+
+[project.scripts]
+movbench = "movbench.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/movbench"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

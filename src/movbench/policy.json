@@ -1,0 +1,19 @@
+{
+  "id": "zen-move-v1",
+  "target": "AMD Zen 5 (default) or Zen 4, x86-64 System V ABI",
+  "description": "Explicit data movement and bit-preserving rearrangement. Zero extension and masked zeroing are allowed. Arithmetic, predicates, shifts, conversions, branches, calls and submission-supplied returns are forbidden.",
+  "groups": {
+    "scalar": ["mov", "movabs", "movzx", "movsx", "movsxd", "movbe"],
+    "vector_moves": ["movd", "movq", "movaps", "movups", "movapd", "movupd", "movdqa", "movdqu", "movss", "movsd", "vmovd", "vmovq", "vmovaps", "vmovups", "vmovapd", "vmovupd", "vmovdqa", "vmovdqu", "vmovdqa32", "vmovdqa64", "vmovdqu8", "vmovdqu16", "vmovdqu32", "vmovdqu64", "vmovss", "vmovsd", "movhlps", "movlhps", "movhps", "movlps", "movhpd", "movlpd", "vmovhlps", "vmovlhps", "vmovhps", "vmovlps", "vmovhpd", "vmovlpd", "movshdup", "movsldup", "movddup", "vmovshdup", "vmovsldup", "vmovddup"],
+    "shuffle": ["pshufb", "pshufd", "pshufhw", "pshuflw", "shufps", "shufpd", "vpshufb", "vpshufd", "vpshufhw", "vpshuflw", "vshufps", "vshufpd", "vshufi32x4", "vshufi64x2", "vshuff32x4", "vshuff64x2", "palignr", "vpalignr", "valignd", "valignq"],
+    "permute": ["vpermb", "vpermw", "vpermd", "vpermq", "vpermps", "vpermpd", "vpermilps", "vpermilpd", "vperm2f128", "vperm2i128", "vpermi2b", "vpermi2w", "vpermi2d", "vpermi2q", "vpermi2ps", "vpermi2pd", "vpermt2b", "vpermt2w", "vpermt2d", "vpermt2q", "vpermt2ps", "vpermt2pd"],
+    "broadcast": ["vpbroadcastb", "vpbroadcastw", "vpbroadcastd", "vpbroadcastq", "vbroadcastss", "vbroadcastsd", "vbroadcastf128", "vbroadcasti128", "vbroadcastf32x2", "vbroadcastf32x4", "vbroadcastf32x8", "vbroadcastf64x2", "vbroadcastf64x4", "vbroadcasti32x2", "vbroadcasti32x4", "vbroadcasti32x8", "vbroadcasti64x2", "vbroadcasti64x4"],
+    "unpack": ["punpcklbw", "punpcklwd", "punpckldq", "punpcklqdq", "punpckhbw", "punpckhwd", "punpckhdq", "punpckhqdq", "unpcklps", "unpckhps", "unpcklpd", "unpckhpd", "vpunpcklbw", "vpunpcklwd", "vpunpckldq", "vpunpcklqdq", "vpunpckhbw", "vpunpckhwd", "vpunpckhdq", "vpunpckhqdq", "vunpcklps", "vunpckhps", "vunpcklpd", "vunpckhpd"],
+    "extract_insert": ["pextrb", "pextrw", "pextrd", "pextrq", "pinsrb", "pinsrw", "pinsrd", "pinsrq", "extractps", "insertps", "vpextrb", "vpextrw", "vpextrd", "vpextrq", "vpinsrb", "vpinsrw", "vpinsrd", "vpinsrq", "vextractps", "vinsertps", "vextractf128", "vextracti128", "vinsertf128", "vinserti128", "vextractf32x4", "vextractf32x8", "vextractf64x2", "vextractf64x4", "vextracti32x4", "vextracti32x8", "vextracti64x2", "vextracti64x4", "vinsertf32x4", "vinsertf32x8", "vinsertf64x2", "vinsertf64x4", "vinserti32x4", "vinserti32x8", "vinserti64x2", "vinserti64x4"],
+    "indexed_moves": ["vpgatherdd", "vpgatherdq", "vpgatherqd", "vpgatherqq", "vgatherdps", "vgatherdpd", "vgatherqps", "vgatherqpd", "vpscatterdd", "vpscatterdq", "vpscatterqd", "vpscatterqq", "vscatterdps", "vscatterdpd", "vscatterqps", "vscatterqpd"],
+    "masked_moves": ["kmovb", "kmovw", "kmovd", "kmovq", "vpcompressb", "vpcompressw", "vpcompressd", "vpcompressq", "vcompressps", "vcompresspd", "vpexpandb", "vpexpandw", "vpexpandd", "vpexpandq", "vexpandps", "vexpandpd", "pblendw", "blendps", "blendpd", "blendvps", "blendvpd", "pblendvb", "vpblendw", "vpblendd", "vblendps", "vblendpd", "vblendvps", "vblendvpd", "vpblendvb", "vpblendmb", "vpblendmw", "vpblendmd", "vpblendmq", "vblendmps", "vblendmpd"]
+  },
+  "boundary_instruction": "ret (one byte, appended by the harness)",
+  "max_code_bytes": 1048576,
+  "max_source_bytes": 16777216
+}

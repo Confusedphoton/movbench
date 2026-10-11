@@ -1,0 +1,2313 @@
+{
+  "schema_version": 1,
+  "id": "3c7fee0101f7",
+  "created": "2026-10-10T23:54:44.616866+00:00",
+  "model": "shuffle-example",
+  "metadata": {
+    "backend": "shuffle",
+    "compiler_command": null
+  },
+  "version": "0.1.0",
+  "suite": "move-kernels-v1",
+  "policy": "zen-move-v1",
+  "hardware": {
+    "cpu": "AMD RYZEN AI MAX+ 395 w/ Radeon 8060S",
+    "vendor": "AuthenticAMD",
+    "family": 26,
+    "model": 112,
+    "microcode": "0xb700037",
+    "architecture": "zen5",
+    "target": "zen5",
+    "target_verified": true,
+    "required_features_present": true,
+    "missing_features": [],
+    "flags": [
+      "fpu",
+      "vme",
+      "de",
+      "pse",
+      "tsc",
+      "msr",
+      "pae",
+      "mce",
+      "cx8",
+      "apic",
+      "sep",
+      "mtrr",
+      "pge",
+      "mca",
+      "cmov",
+      "pat",
+      "pse36",
+      "clflush",
+      "mmx",
+      "fxsr",
+      "sse",
+      "sse2",
+      "ht",
+      "syscall",
+      "nx",
+      "mmxext",
+      "fxsr_opt",
+      "pdpe1gb",
+      "rdtscp",
+      "lm",
+      "constant_tsc",
+      "rep_good",
+      "amd_lbr_v2",
+      "nopl",
+      "xtopology",
+      "nonstop_tsc",
+      "cpuid",
+      "extd_apicid",
+      "aperfmperf",
+      "rapl",
+      "pni",
+      "pclmulqdq",
+      "monitor",
+      "ssse3",
+      "fma",
+      "cx16",
+      "sse4_1",
+      "sse4_2",
+      "movbe",
+      "popcnt",
+      "aes",
+      "xsave",
+      "avx",
+      "f16c",
+      "rdrand",
+      "lahf_lm",
+      "cmp_legacy",
+      "svm",
+      "extapic",
+      "cr8_legacy",
+      "abm",
+      "sse4a",
+      "misalignsse",
+      "3dnowprefetch",
+      "osvw",
+      "ibs",
+      "skinit",
+      "wdt",
+      "tce",
+      "topoext",
+      "perfctr_core",
+      "perfctr_nb",
+      "bpext",
+      "perfctr_llc",
+      "mwaitx",
+      "cpuid_fault",
+      "cpb",
+      "cat_l3",
+      "cdp_l3",
+      "hw_pstate",
+      "ssbd",
+      "mba",
+      "perfmon_v2",
+      "ibrs",
+      "ibpb",
+      "stibp",
+      "ibrs_enhanced",
+      "vmmcall",
+      "fsgsbase",
+      "tsc_adjust",
+      "bmi1",
+      "avx2",
+      "smep",
+      "bmi2",
+      "erms",
+      "invpcid",
+      "cqm",
+      "rdt_a",
+      "avx512f",
+      "avx512dq",
+      "rdseed",
+      "adx",
+      "smap",
+      "avx512ifma",
+      "clflushopt",
+      "clwb",
+      "avx512cd",
+      "sha_ni",
+      "avx512bw",
+      "avx512vl",
+      "xsaveopt",
+      "xsavec",
+      "xgetbv1",
+      "xsaves",
+      "cqm_llc",
+      "cqm_occup_llc",
+      "cqm_mbm_total",
+      "cqm_mbm_local",
+      "user_shstk",
+      "avx_vnni",
+      "avx512_bf16",
+      "clzero",
+      "irperf",
+      "xsaveerptr",
+      "rdpru",
+      "wbnoinvd",
+      "cppc",
+      "arat",
+      "npt",
+      "lbrv",
+      "svm_lock",
+      "nrip_save",
+      "tsc_scale",
+      "vmcb_clean",
+      "flushbyasid",
+      "decodeassists",
+      "pausefilter",
+      "pfthreshold",
+      "avic",
+      "v_vmsave_vmload",
+      "vgif",
+      "x2avic",
+      "v_spec_ctrl",
+      "vnmi",
+      "avx512vbmi",
+      "umip",
+      "pku",
+      "ospke",
+      "avx512_vbmi2",
+      "gfni",
+      "vaes",
+      "vpclmulqdq",
+      "avx512_vnni",
+      "avx512_bitalg",
+      "avx512_vpopcntdq",
+      "rdpid",
+      "bus_lock_detect",
+      "movdiri",
+      "movdir64b",
+      "overflow_recov",
+      "succor",
+      "smca",
+      "fsrm",
+      "avx512_vp2intersect",
+      "flush_l1d",
+      "amd_lbr_pmc_freeze"
+    ],
+    "os": "Linux-7.2.8-2-cachyos-x86_64-with-glibc2.44",
+    "python": "3.12.13",
+    "gcc": "gcc (GCC) 16.2.1 20260810",
+    "available_cpus": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ]
+  },
+  "settings": {
+    "seed": 1729,
+    "repeats": 7,
+    "trial_ms": 10,
+    "cpu": 0,
+    "timeout_seconds": 45,
+    "cache": "warm, 64-input rotating pool",
+    "measurement": "wall ns/kernel, includes input copy and dispatch; paired alternating batches"
+  },
+  "harness_sha256": "fd3adf6c9cecd3fb4742bb79a00820fc05320c2e03e203029901c2eaa1967ea1",
+  "cohort": "98b423be913304c7",
+  "tasks": [
+    "add_u8",
+    "madd_u8",
+    "mul_u8",
+    "prefix_u8",
+    "route_64",
+    "sbox_u8",
+    "sum_u8",
+    "transpose_8x8",
+    "xor_u8"
+  ],
+  "tiers": [
+    "large",
+    "medium",
+    "small",
+    "tiny"
+  ],
+  "submission_sha256": "0eeb1c9593ada4e896347e2d96cef4ae83aff565302231b5f61ee858483bdfc0",
+  "results": [
+    {
+      "task": "add_u8",
+      "tier": "large",
+      "valid": true,
+      "score": 100.0,
+      "memory_bytes": 65536,
+      "tables_bytes": 65536,
+      "scratch_bytes": 0,
+      "validation": {
+        "instructions": 160,
+        "code_bytes": 479,
+        "mnemonics": {
+          "mov": 128,
+          "movzx": 32
+        },
+        "policy": "zen-move-v1"
+      },
+      "code_sha256": "115ee7afa6fe431df040c630d30e9c463e69ff9e970443e51af646cfc2dd3413",
+      "tables_sha256": "4efe2ac4367e746f5086a4c6563dc12683392f160b5af811384d5dafa4f48218",
+      "reference_sha256": "4be13828a041254a00b8f96f8bb2e70eb0dc68cdc2e5262d84560d1fa4e81c78",
+      "fixtures_sha256": "c19e8247d400c98f7ee974eab93b2332e28ca5f231be9a9584cae04cfc4d59a9",
+      "timing": {
+        "median_ns": 230.639328,
+        "mad_ns": 18.132689999999997,
+        "samples_ns": [
+          264.4431,
+          224.29509,
+          164.027145,
+          116.82695,
+          248.772018,
+          230.639328,
+          240.599701
+        ],
+        "repetitions": 7
+      },
+      "reference_timing": {
+        "median_ns": 215.193436,
+        "mad_ns": 21.750366000000014,
+        "samples_ns": [
+          208.232193,
+          247.248291,
+          215.193436,
+          117.383423,
+          146.435638,
+          224.53833,
+          236.943802
+        ],
+        "repetitions": 7
+      },
+      "speedup": 0.9330301031747716,
+      "cases": 2261,
+      "iterations_per_trial": {
+        "candidate": 65536,
+        "reference": 65536
+      },
+      "elapsed_seconds": 0.4340176569967298
+    },
+    {
+      "task": "madd_u8",
+      "tier": "large",
+      "valid": true,
+      "score": 100.0,
+      "memory_bytes": 16777216,
+      "tables_bytes": 16777216,
+      "scratch_bytes": 0,
+      "validation": {
+        "instructions": 96,
+        "code_bytes": 287,
+        "mnemonics": {
+          "mov": 96
+        },
+        "policy": "zen-move-v1"
+      },
+      "code_sha256": "e484f4fcd114ca5877bd439b886951b8285f1f0dc3287d4aedae0b5be6484c9b",
+      "tables_sha256": "84a281d7133003274fe45642e243fbc3838e7d8c39ab3018c9d7083d25249e5a",
+      "reference_sha256": "e3033f515ecb8f46932b1adfe25fca2f7daaa31ebea60b29f022020f82e3a51c",
+      "fixtures_sha256": "60f74484229e173b23b6bfe6695cfc49a01e3ee4fc614cc9c88956b870d38443",
+      "timing": {
+        "median_ns": 30.37458,
+        "mad_ns": 0.715442000000003,
+        "samples_ns": [
+          31.480127,
+          31.13002,
+          29.659138,
+          29.71402,
+          29.93634,
+          30.37458,
+          31.79364
+        ],
+        "repetitions": 7
+      },
+      "reference_timing": {
+        "median_ns": 29.567947,
+        "mad_ns": 0.14112400000000136,
+        "samples_ns": [
+          30.626617,
+          29.426823,
+          29.42067,
+          29.666037,
+          29.497738,
+          29.841404,
+          29.567947
+        ],
+        "repetitions": 7
+      },
+      "speedup": 0.9734438138733111,
+      "cases": 236,
+      "iterations_per_trial": {
+        "candidate": 524288,
+        "reference": 524288
+      },
+      "elapsed_seconds": 2.6696273180132266
+    },
+    {
+      "task": "mul_u8",
+      "tier": "large",
+      "valid": true,
+      "score": 102.1915430762837,
+      "memory_bytes": 65536,
+      "tables_bytes": 65536,
+      "scratch_bytes": 0,
+      "validation": {
+        "instructions": 160,
+        "code_bytes": 479,
+        "mnemonics": {
+          "mov": 128,
+          "movzx": 32
+        },
+        "policy": "zen-move-v1"
+      },
+      "code_sha256": "115ee7afa6fe431df040c630d30e9c463e69ff9e970443e51af646cfc2dd3413",
+      "tables_sha256": "4eb7f260f91b54910f4e04a53043163ce44c5a9c96a307c5e84f9bd6c5e41720",
+      "reference_sha256": "948319e697f4cfeb415e5fb584635dd099faadc4b107334deae4ceaf426d9a3d",
+      "fixtures_sha256": "916dccf3b26d60203431558e1177dc686f7310d141213d9346135a65b4815f5d",
+      "timing": {
+        "median_ns": 128.431046,
+        "mad_ns": 3.1639399999999966,
+        "samples_ns": [
+          135.251175,
+          142.692291,
+          128.431046,
+          123.793686,
+          127.450348,
+          131.594986,
+          128.325882
+        ],
+        "repetitions": 7
+      },
+      "reference_timing": {
+        "median_ns": 136.476799,
+        "mad_ns": 6.364173999999991,
+        "samples_ns": [
+          140.865807,
+          151.314163,
+          142.840973,
+          123.806534,
+          124.576805,
+          136.476799,
+          133.315308
+        ],
+        "repetitions": 7
+      },
+      "speedup": 1.0626464803533562,
+      "cases": 2261,
+      "iterations_per_trial": {
+        "candidate": 65536,
+        "reference": 131072
+      },
+      "elapsed_seconds": 0.3741053470002953
+    },
+    {
+      "task": "prefix_u8",
+      "tier": "large",
+      "valid": true,
+      "score": 100.0,
+      "memory_bytes": 65536,
+      "tables_bytes": 65536,
+      "scratch_bytes": 0,
+      "validation": {
+        "instructions": 321,
+        "code_bytes": 900,
+        "mnemonics": {
+          "mov": 257,
+          "movzx": 64
+        },
+        "policy": "zen-move-v1"
+      },
+      "code_sha256": "0fe9cc2d5c2e24b88e757ed8e53acf259194108396e44df7335777927506b63b",
+      "tables_sha256": "4efe2ac4367e746f5086a4c6563dc12683392f160b5af811384d5dafa4f48218",
+      "reference_sha256": "67bc5f4a93dfd41b3c8087b1bad81da0de06a4dbf369b85aead8dc8b0154c66d",
+      "fixtures_sha256": "ad44cec58035ed0dc7b8e4df4abe35eee4d83b746eb36725a087155b8558edc1",
+      "timing": {
+        "median_ns": 393.285858,
+        "mad_ns": 0.2491759999999772,
+        "samples_ns": [
+          393.285858,
+          392.56427,
+          393.265656,
+          392.895111,
+          393.348206,
+          393.660706,
+          393.535034
+        ],
+        "repetitions": 7
+      },
+      "reference_timing": {
+        "median_ns": 392.557861,
+        "mad_ns": 0.21035799999998517,
+        "samples_ns": [
+          390.546936,
+          390.920532,
+          392.557861,
+          392.768219,
+          392.477142,
+          393.040924,
+          392.629089
+        ],
+        "repetitions": 7
+      },
+      "speedup": 0.9981489367461568,
+      "cases": 213,
+      "iterations_per_trial": {
+        "candidate": 32768,
+        "reference": 32768
+      },
+      "elapsed_seconds": 0.2774504830013029
+    },
+    {
+      "task": "route_64",
+      "tier": "large",
+      "valid": true,
+      "score": 166.3691073947905,
+      "memory_bytes": 0,
+      "tables_bytes": 0,
+      "scratch_bytes": 0,
+      "validation": {
+        "instructions": 4,
+        "code_bytes": 26,
+        "mnemonics": {
+          "vmovdqu8": 3,
+          "vpermb": 1
+        },
+        "policy": "zen-move-v1"
+      },
+      "code_sha256": "5ecb5b345f96d4147b61279481aeac512f4146d1345444d583e5bc1f09e92e76",
+      "tables_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reference_sha256": "c4f5bb1877a167a10401cc7db7a1cf38763c89fbe585bfc73f53e71fd5f54143",
+      "fixtures_sha256": "cfd5007e4ec6b4c772f766d3358efdf470e03574c6f87ef0661f461f6af5615b",
+      "timing": {
+        "median_ns": 8.374267,
+        "mad_ns": 0.023815000000000808,
+        "samples_ns": [
+          8.37679,
+          8.374267,
+          8.392674,
+          8.398082,
+          6.048192,
+          6.035603,
+          6.192134
+        ],
+        "repetitions": 7
+      },
+      "reference_timing": {
+        "median_ns": 52.736401,
+        "mad_ns": 4.203419000000004,
+        "samples_ns": [
+          66.852036,
+          66.87925,
+          67.236256,
+          52.736401,
+          48.850925,
+          48.532982,
+          49.566544
+        ],
+        "repetitions": 7
+      },
+      "speedup": 6.297434868030838,
+      "cases": 469,
+      "iterations_per_trial": {
+        "candidate": 2097152,
+        "reference": 262144
+      },
+      "elapsed_seconds": 0.3250875260127941
+    },
+    {
+      "task": "sbox_u8",
+      "tier": "large",
+      "valid": true,
+      "score": 100.0,
+      "memory_bytes": 256,
+      "tables_bytes": 256,
+      "scratch_bytes": 0,
+      "validation": {
+        "instructions": 768,
+        "code_bytes": 3583,
+        "mnemonics": {
+          "movzx": 512,
+          "mov": 256
+        },
+        "policy": "zen-move-v1"
+      },
+      "code_sha256": "2eaeb7f52c2e008140daf89901c047f6633478f7f74fc0137b0c6b2cdc2b8a55",
+      "tables_sha256": "c2d8e5eed6cbebd8625fc18f81486a7733c04f9b0129ffbe974c68b90308b4f2",
+      "reference_sha256": "8e4d374f00dd917ffaf46a0b1090b8e0fa4aa8d47afc54fa748a76a1df369153",
+      "fixtures_sha256": "c5cad0b36b9a9e61151e4462c784584fbd645919a2808fc22167d0dc66ee815a",
+      "timing": {
+        "median_ns": 92.630173,
+        "mad_ns": 18.800537000000006,
+        "samples_ns": [
+          110.137299,
+          111.43071,
+          110.8974,
+          92.630173,
+          73.009758,
+          73.372986,
+          73.19519
+        ],
+        "repetitions": 7
+      },
+      "reference_timing": {
+        "median_ns": 74.539665,
+        "mad_ns": 1.4540779999999955,
+        "samples_ns": [
+          110.144096,
+          110.123848,
+          110.385414,
+          74.539665,
+          73.085587,
+          73.147194,
+          73.119675
+        ],
+        "repetitions": 7
+      },
+      "speedup": 0.8047017789764896,
+      "cases": 214,
+      "iterations_per_trial": {
+        "candidate": 131072,
+        "reference": 131072
+      },
+      "elapsed_seconds": 0.3163924000109546
+    },
+    {
+      "task": "sum_u8",
+      "tier": "large",
+      "valid": true,
+      "score": 100.18323179057508,
+      "memory_bytes": 65536,
+      "tables_bytes": 65536,
+      "scratch_bytes": 0,
+      "validation": {
+        "instructions": 258,
+        "code_bytes": 711,
+        "mnemonics": {
+          "mov": 194,
+          "movzx": 64
+        },
+        "policy": "zen-move-v1"
+      },
+      "code_sha256": "c83d02812797caf943e9b258d5a08117d172566be8939bc691a113a613e7d11f",
+      "tables_sha256": "4efe2ac4367e746f5086a4c6563dc12683392f160b5af811384d5dafa4f48218",
+      "reference_sha256": "3bcf2400ad7223176cbc0259b251a8f19bdf40d0e367ed0915ec0b7f7850295d",
+      "fixtures_sha256": "138b5d07a62057b606999f7ac5acefed0c90c6146c17b4fce9463acccb626f7b",
+      "timing": {
+        "median_ns": 428.206848,
+        "mad_ns": 4.173523000000046,
+        "samples_ns": [
+          428.206848,
+          429.109283,
+          431.542313,
+          432.380371,
+          400.868835,
+          323.936417,
+          366.223328
+        ],
+        "repetitions": 7
+      },
+      "reference_timing": {
+        "median_ns": 430.387787,
+        "mad_ns": 3.3155820000000062,
+        "samples_ns": [
+          425.678589,
+          430.387787,
+          433.703369,
+          432.054138,
+          431.197418,
+          315.600647,
+          335.052399
+        ],
+        "repetitions": 7
+      },
+      "speedup": 1.005093190382607,
+      "cases": 213,
+      "iterations_per_trial": {
+        "candidate": 65536,
+        "reference": 32768
+      },
+      "elapsed_seconds": 0.36843935200886335
+    },
+    {
+      "task": "transpose_8x8",
+      "tier": "large",
+      "valid": true,
+      "score": 167.50212901333583,
+      "memory_bytes": 64,
+      "tables_bytes": 64,
+      "scratch_bytes": 0,
+      "validation": {
+        "instructions": 4,
+        "code_bytes": 25,
+        "mnemonics": {
+          "vmovdqu8": 3,
+          "vpermb": 1
+        },
+        "policy": "zen-move-v1"
+      },
+      "code_sha256": "1c07ae7b10dcac249e559301d7712f9452e2f68d286f6ffcc7444bab85d604b2",
+      "tables_sha256": "39a3c4c71b835fa76035b123836cb41ff4b4c5c4098944f4461df15821b127f9",
+      "reference_sha256": "7e4bfc55245ab581248f5bd98b105a2df6159af803074a45c0b63506fd31e36d",
+      "fixtures_sha256": "9289a84aa0007355a23375f42da30ed2a1626677c9279dc78cfe729b112c0b6d",
+      "timing": {
+        "median_ns": 5.448748,
+        "mad_ns": 0.8208760000000002,
+        "samples_ns": [
+          5.433408,
+          5.448748,
+          7.143519,
+          7.050565,
+          8.026153,
+          4.964974,
+          4.627872
+        ],
+        "repetitions": 7
+      },
+      "reference_timing": {
+        "median_ns": 35.408159,
+        "mad_ns": 2.7699150000000046,
+        "samples_ns": [
+          35.13151,
+          35.408159,
+          38.178074,
+          38.376966,
+          40.882921,
+          33.096607,
+          30.750792
+        ],
+        "repetitions": 7
+      },
+      "speedup": 6.498402752338702,
+      "cases": 213,
+      "iterations_per_trial": {
+        "candidate": 2097152,
+        "reference": 524288
+      },
+      "elapsed_seconds": 0.3094461770087946
+    },
+    {
+      "task": "xor_u8",
+      "tier": "large",
+      "valid": true,
+      "score": 100.0,
+      "memory_bytes": 65536,
+      "tables_bytes": 65536,
+      "scratch_bytes": 0,
+      "validation": {
+        "instructions": 160,
+        "code_bytes": 479,
+        "mnemonics": {
+          "mov": 128,
+          "movzx": 32
+        },
+        "policy": "zen-move-v1"
+      },
+      "code_sha256": "115ee7afa6fe431df040c630d30e9c463e69ff9e970443e51af646cfc2dd3413",
+      "tables_sha256": "f0a3a4299328c597af0b56eaec469cd984b24aea6b5af3cfaa321e63e76d7033",
+      "reference_sha256": "2d6ca97fd8f4c0f3a5710304c76a1d8ba14f23a1b18e701044bab4affb500921",
+      "fixtures_sha256": "c6261d776eb82cd3ee739d809da70845335414d5616f5f6c36802fa4cc4b7122",
+      "timing": {
+        "median_ns": 112.351028,
+        "mad_ns": 7.669205000000005,
+        "samples_ns": [
+          123.754631,
+          112.351028,
+          104.917244,
+          101.418968,
+          113.126648,
+          120.020233,
+          97.958458
+        ],
+        "repetitions": 7
+      },
+      "reference_timing": {
+        "median_ns": 105.586006,
+        "mad_ns": 5.219207999999995,
+        "samples_ns": [
+          100.366798,
+          120.333252,
+          109.359383,
+          105.586006,
+          97.795876,
+          112.145866,
+          103.143272
+        ],
+        "repetitions": 7
+      },
+      "speedup": 0.939786736975829,
+      "cases": 2261,
+      "iterations_per_trial": {
+        "candidate": 131072,
+        "reference": 131072
+      },
+      "elapsed_seconds": 0.35406091999902856
+    },
+    {
+      "task": "add_u8",
+      "tier": "medium",
+      "valid": true,
+      "score": 100.0,
+      "memory_bytes": 65536,
+      "tables_bytes": 65536,
+      "scratch_bytes": 0,
+      "validation": {
+        "instructions": 160,
+        "code_bytes": 479,
+        "mnemonics": {
+          "mov": 128,
+          "movzx": 32
+        },
+        "policy": "zen-move-v1"
+      },
+      "code_sha256": "115ee7afa6fe431df040c630d30e9c463e69ff9e970443e51af646cfc2dd3413",
+      "tables_sha256": "4efe2ac4367e746f5086a4c6563dc12683392f160b5af811384d5dafa4f48218",
+      "reference_sha256": "4be13828a041254a00b8f96f8bb2e70eb0dc68cdc2e5262d84560d1fa4e81c78",
+      "fixtures_sha256": "c19e8247d400c98f7ee974eab93b2332e28ca5f231be9a9584cae04cfc4d59a9",
+      "timing": {
+        "median_ns": 94.464539,
+        "mad_ns": 9.835007000000004,
+        "samples_ns": [
+          110.781898,
+          94.464539,
+          102.454559,
+          94.148239,
+          84.629532,
+          77.946983,
+          111.68969
+        ],
+        "repetitions": 7
+      },
+      "reference_timing": {
+        "median_ns": 91.293419,
+        "mad_ns": 12.676224000000005,
+        "samples_ns": [
+          117.388847,
+          103.969643,
+          110.439156,
+          89.662689,
+          87.018753,
+          78.407143,
+          91.293419
+        ],
+        "repetitions": 7
+      },
+      "speedup": 0.9664305777218687,
+      "cases": 2261,
+      "iterations_per_trial": {
+        "candidate": 131072,
+        "reference": 131072
+      },
+      "elapsed_seconds": 0.34089645600761287
+    },
+    {
+      "task": "madd_u8",
+      "tier": "medium",
+      "valid": true,
+      "score": 101.42228347349997,
+      "memory_bytes": 131072,
+      "tables_bytes": 131072,
+      "scratch_bytes": 0,
+      "validation": {
+        "instructions": 192,
+        "code_bytes": 735,
+        "mnemonics": {
+          "movzx": 64,
+          "mov": 128
+        },
+        "policy": "zen-move-v1"
+      },
+      "code_sha256": "aeef2df68aa012eb9e88b2d9c91766e6d4e4996fcb85209c751da86c1d689edf",
+      "tables_sha256": "fcfb1f5ee19d7fc46f6447d8a7f8e9a25a09b4fe08696adf78164b991d764f86",
+      "reference_sha256": "ebd94a992f49432aa3ee0672da9b4fa15ab62a59f37e51af975dbc5df702bc09",
+      "fixtures_sha256": "60f74484229e173b23b6bfe6695cfc49a01e3ee4fc614cc9c88956b870d38443",
+      "timing": {
+        "median_ns": 58.445351,
+        "mad_ns": 3.5635189999999994,
+        "samples_ns": [
+          55.883823,
+          58.445351,
+          56.887196,
+          54.881832,
+          75.514904,
+          70.56881,
+          77.339451
+        ],
+        "repetitions": 7
+      },
+      "reference_timing": {
+        "median_ns": 60.796135,
+        "mad_ns": 6.174343,
+        "samples_ns": [
+          54.621792,
+          67.738758,
+          60.796135,
+          53.644485,
+          59.7873,
+          62.839024,
+          67.617069
+        ],
+        "repetitions": 7
+      },
+      "speedup": 1.0402219160254509,
+      "cases": 236,
+      "iterations_per_trial": {
+        "candidate": 262144,
+        "reference": 262144
+      },
+      "elapsed_seconds": 0.3420254069933435
+    },
+    {
+      "task": "mul_u8",
+      "tier": "medium",
+      "valid": true,
+      "score": 103.23228522750108,
+      "memory_bytes": 65536,
+      "tables_bytes": 65536,
+      "scratch_bytes": 0,
+      "validation": {
+        "instructions": 160,
+        "code_bytes": 479,
+        "mnemonics": {
+          "mov": 128,
+          "movzx": 32
+        },
+        "policy": "zen-move-v1"
+      },
+      "code_sha256": "115ee7afa6fe431df040c630d30e9c463e69ff9e970443e51af646cfc2dd3413",
+      "tables_sha256": "4eb7f260f91b54910f4e04a53043163ce44c5a9c96a307c5e84f9bd6c5e41720",
+      "reference_sha256": "948319e697f4cfeb415e5fb584635dd099faadc4b107334deae4ceaf426d9a3d",
+      "fixtures_sha256": "916dccf3b26d60203431558e1177dc686f7310d141213d9346135a65b4815f5d",
+      "timing": {
+        "median_ns": 80.586243,
+        "mad_ns": 2.322959999999995,
+        "samples_ns": [
+          78.263283,
+          80.586243,
+          77.607208,
+          80.533882,
+          82.113174,
+          83.63781,
+          96.358833
+        ],
+        "repetitions": 7
+      },
+      "reference_timing": {
+        "median_ns": 88.141716,
+        "mad_ns": 4.216797,
+        "samples_ns": [
+          79.352295,
+          78.649834,
+          77.821396,
+          90.785408,
+          92.358513,
+          88.141716,
+          90.957932
+        ],
+        "repetitions": 7
+      },
+      "speedup": 1.093756362360757,
+      "cases": 2261,
+      "iterations_per_trial": {
+        "candidate": 131072,
+        "reference": 131072
+      },
+      "elapsed_seconds": 0.3119809420022648
+    },
+    {
+      "task": "prefix_u8",
+      "tier": "medium",
+      "valid": true,
+      "score": 100.73272935444112,
+      "memory_bytes": 65536,
+      "tables_bytes": 65536,
+      "scratch_bytes": 0,
+      "validation": {
+        "instructions": 321,
+        "code_bytes": 900,
+        "mnemonics": {
+          "mov": 257,
+          "movzx": 64
+        },
+        "policy": "zen-move-v1"
+      },
+      "code_sha256": "0fe9cc2d5c2e24b88e757ed8e53acf259194108396e44df7335777927506b63b",
+      "tables_sha256": "4efe2ac4367e746f5086a4c6563dc12683392f160b5af811384d5dafa4f48218",
+      "reference_sha256": "67bc5f4a93dfd41b3c8087b1bad81da0de06a4dbf369b85aead8dc8b0154c66d",
+      "fixtures_sha256": "ad44cec58035ed0dc7b8e4df4abe35eee4d83b746eb36725a087155b8558edc1",
+      "timing": {
+        "median_ns": 213.307999,
+        "mad_ns": 12.796386999999982,
+        "samples_ns": [
+          222.168594,
+          213.307999,
+          248.733658,
+          215.556198,
+          199.390121,
+          192.158447,
+          200.511612
+        ],
+        "repetitions": 7
+      },
+      "reference_timing": {
+        "median_ns": 217.685791,
+        "mad_ns": 17.922638000000006,
+        "samples_ns": [
+          235.608429,
+          221.255295,
+          222.846436,
+          217.685791,
+          193.987762,
+          193.233932,
+          197.149567
+        ],
+        "repetitions": 7
+      },
+      "speedup": 1.0205233372425007,
+      "cases": 213,
+      "iterations_per_trial": {
+        "candidate": 65536,
+        "reference": 65536
+      },
+      "elapsed_seconds": 0.3025809419923462
+    },
+    {
+      "task": "route_64",
+      "tier": "medium",
+      "valid": true,
+      "score": 178.1033413847208,
+      "memory_bytes": 0,
+      "tables_bytes": 0,
+      "scratch_bytes": 0,
+      "validation": {
+        "instructions": 4,
+        "code_bytes": 26,
+        "mnemonics": {
+          "vmovdqu8": 3,
+          "vpermb": 1
+        },
+        "policy": "zen-move-v1"
+      },
+      "code_sha256": "5ecb5b345f96d4147b61279481aeac512f4146d1345444d583e5bc1f09e92e76",
+      "tables_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reference_sha256": "c4f5bb1877a167a10401cc7db7a1cf38763c89fbe585bfc73f53e71fd5f54143",
+      "fixtures_sha256": "cfd5007e4ec6b4c772f766d3358efdf470e03574c6f87ef0661f461f6af5615b",
+      "timing": {
+        "median_ns": 4.667574,
+        "mad_ns": 0.790324,
+        "samples_ns": [
+          4.667574,
+          4.248626,
+          3.87725,
+          3.866104,
+          5.824461,
+          5.807172,
+          5.211734
+        ],
+        "repetitions": 7
+      },
+      "reference_timing": {
+        "median_ns": 40.695759,
+        "mad_ns": 2.6221770000000006,
+        "samples_ns": [
+          42.766857,
+          36.671284,
+          36.630119,
+          37.711075,
+          40.695759,
+          43.317936,
+          42.642033
+        ],
+        "repetitions": 7
+      },
+      "speedup": 8.718824597103335,
+      "cases": 469,
+      "iterations_per_trial": {
+        "candidate": 4194304,
+        "reference": 262144
+      },
+      "elapsed_seconds": 0.3050553170032799
+    },
+    {
+      "task": "sbox_u8",
+      "tier": "medium",
+      "valid": true,
+      "score": 100.0,
+      "memory_bytes": 256,
+      "tables_bytes": 256,
+      "scratch_bytes": 0,
+      "validation": {
+        "instructions": 768,
+        "code_bytes": 3583,
+        "mnemonics": {
+          "movzx": 512,
+          "mov": 256
+        },
+        "policy": "zen-move-v1"
+      },
+      "code_sha256": "2eaeb7f52c2e008140daf89901c047f6633478f7f74fc0137b0c6b2cdc2b8a55",
+      "tables_sha256": "c2d8e5eed6cbebd8625fc18f81486a7733c04f9b0129ffbe974c68b90308b4f2",
+      "reference_sha256": "8e4d374f00dd917ffaf46a0b1090b8e0fa4aa8d47afc54fa748a76a1df369153",
+      "fixtures_sha256": "c5cad0b36b9a9e61151e4462c784584fbd645919a2808fc22167d0dc66ee815a",
+      "timing": {
+        "median_ns": 143.573029,
+        "mad_ns": 0.07207400000001485,
+        "samples_ns": [
+          144.117645,
+          143.645103,
+          143.564545,
+          143.597099,
+          143.152534,
+          143.321159,
+          143.573029
+        ],
+        "repetitions": 7
+      },
+      "reference_timing": {
+        "median_ns": 143.546494,
+        "mad_ns": 0.18017499999999131,
+        "samples_ns": [
+          143.653519,
+          143.25573,
+          143.884964,
+          143.726669,
+          143.23394,
+          143.400352,
+          143.546494
+        ],
+        "repetitions": 7
+      },
+      "speedup": 0.9998151811647019,
+      "cases": 214,
+      "iterations_per_trial": {
+        "candidate": 131072,
+        "reference": 131072
+      },
+      "elapsed_seconds": 0.43592209700727835
+    },
+    {
+      "task": "sum_u8",
+      "tier": "medium",
+      "valid": true,
+      "score": 100.0,
+      "memory_bytes": 65536,
+      "tables_bytes": 65536,
+      "scratch_bytes": 0,
+      "validation": {
+        "instructions": 258,
+        "code_bytes": 711,
+        "mnemonics": {
+          "mov": 194,
+          "movzx": 64
+        },
+        "policy": "zen-move-v1"
+      },
+      "code_sha256": "c83d02812797caf943e9b258d5a08117d172566be8939bc691a113a613e7d11f",
+      "tables_sha256": "4efe2ac4367e746f5086a4c6563dc12683392f160b5af811384d5dafa4f48218",
+      "reference_sha256": "3bcf2400ad7223176cbc0259b251a8f19bdf40d0e367ed0915ec0b7f7850295d",
+      "fixtures_sha256": "138b5d07a62057b606999f7ac5acefed0c90c6146c17b4fce9463acccb626f7b",
+      "timing": {
+        "median_ns": 391.786743,
+        "mad_ns": 0.3097539999999981,
+        "samples_ns": [
+          391.514618,
+          392.096497,
+          391.517975,
+          391.070374,
+          392.131012,
+          392.2677,
+          391.786743
+        ],
+        "repetitions": 7
+      },
+      "reference_timing": {
+        "median_ns": 391.64978,
+        "mad_ns": 0.2803649999999607,
+        "samples_ns": [
+          391.128784,
+          390.823608,
+          391.471527,
+          391.966217,
+          391.64978,
+          391.930145,
+          391.916687
+        ],
+        "repetitions": 7
+      },
+      "speedup": 0.9996504144092492,
+      "cases": 213,
+      "iterations_per_trial": {
+        "candidate": 32768,
+        "reference": 32768
+      },
+      "elapsed_seconds": 0.2756288629898336
+    },
+    {
+      "task": "transpose_8x8",
+      "tier": "medium",
+      "valid": true,
+      "score": 168.63235784425044,
+      "memory_bytes": 64,
+      "tables_bytes": 64,
+      "scratch_bytes": 0,
+      "validation": {
+        "instructions": 4,
+        "code_bytes": 25,
+        "mnemonics": {
+          "vmovdqu8": 3,
+          "vpermb": 1
+        },
+        "policy": "zen-move-v1"
+      },
+      "code_sha256": "1c07ae7b10dcac249e559301d7712f9452e2f68d286f6ffcc7444bab85d604b2",
+      "tables_sha256": "39a3c4c71b835fa76035b123836cb41ff4b4c5c4098944f4461df15821b127f9",
+      "reference_sha256": "7e4bfc55245ab581248f5bd98b105a2df6159af803074a45c0b63506fd31e36d",
+      "fixtures_sha256": "9289a84aa0007355a23375f42da30ed2a1626677c9279dc78cfe729b112c0b6d",
+      "timing": {
+        "median_ns": 6.237257,
+        "mad_ns": 1.2482280000000001,
+        "samples_ns": [
+          7.485485,
+          7.576231,
+          7.522209,
+          5.928881,
+          5.348967,
+          4.76924,
+          6.237257
+        ],
+        "repetitions": 7
+      },
+      "reference_timing": {
+        "median_ns": 41.82246,
+        "mad_ns": 3.396000000000001,
+        "samples_ns": [
+          50.022953,
+          50.088425,
+          50.120148,
+          38.630703,
+          38.877598,
+          38.42646,
+          41.82246
+        ],
+        "repetitions": 7
+      },
+      "speedup": 6.7052648303573195,
+      "cases": 213,
+      "iterations_per_trial": {
+        "candidate": 2097152,
+        "reference": 262144
+      },
+      "elapsed_seconds": 0.26000806399679277
+    },
+    {
+      "task": "xor_u8",
+      "tier": "medium",
+      "valid": true,
+      "score": 100.0,
+      "memory_bytes": 65536,
+      "tables_bytes": 65536,
+      "scratch_bytes": 0,
+      "validation": {
+        "instructions": 160,
+        "code_bytes": 479,
+        "mnemonics": {
+          "mov": 128,
+          "movzx": 32
+        },
+        "policy": "zen-move-v1"
+      },
+      "code_sha256": "115ee7afa6fe431df040c630d30e9c463e69ff9e970443e51af646cfc2dd3413",
+      "tables_sha256": "f0a3a4299328c597af0b56eaec469cd984b24aea6b5af3cfaa321e63e76d7033",
+      "reference_sha256": "2d6ca97fd8f4c0f3a5710304c76a1d8ba14f23a1b18e701044bab4affb500921",
+      "fixtures_sha256": "c6261d776eb82cd3ee739d809da70845335414d5616f5f6c36802fa4cc4b7122",
+      "timing": {
+        "median_ns": 204.821518,
+        "mad_ns": 0.2357330000000104,
+        "samples_ns": [
+          204.429703,
+          206.315887,
+          205.051285,
+          204.683319,
+          204.410431,
+          204.821518,
+          205.057251
+        ],
+        "repetitions": 7
+      },
+      "reference_timing": {
+        "median_ns": 204.679489,
+        "mad_ns": 0.2653959999999813,
+        "samples_ns": [
+          204.167679,
+          206.050644,
+          204.718628,
+          204.679489,
+          204.414093,
+          205.965027,
+          204.527237
+        ],
+        "repetitions": 7
+      },
+      "speedup": 0.9993065718807923,
+      "cases": 2261,
+      "iterations_per_trial": {
+        "candidate": 65536,
+        "reference": 65536
+      },
+      "elapsed_seconds": 0.4117974300024798
+    },
+    {
+      "task": "add_u8",
+      "tier": "small",
+      "valid": true,
+      "score": 100.0,
+      "memory_bytes": 65536,
+      "tables_bytes": 65536,
+      "scratch_bytes": 0,
+      "validation": {
+        "instructions": 160,
+        "code_bytes": 479,
+        "mnemonics": {
+          "mov": 128,
+          "movzx": 32
+        },
+        "policy": "zen-move-v1"
+      },
+      "code_sha256": "115ee7afa6fe431df040c630d30e9c463e69ff9e970443e51af646cfc2dd3413",
+      "tables_sha256": "4efe2ac4367e746f5086a4c6563dc12683392f160b5af811384d5dafa4f48218",
+      "reference_sha256": "4be13828a041254a00b8f96f8bb2e70eb0dc68cdc2e5262d84560d1fa4e81c78",
+      "fixtures_sha256": "c19e8247d400c98f7ee974eab93b2332e28ca5f231be9a9584cae04cfc4d59a9",
+      "timing": {
+        "median_ns": 117.123917,
+        "mad_ns": 0.051131999999995514,
+        "samples_ns": [
+          117.175049,
+          116.994736,
+          117.123917,
+          117.195305,
+          117.043732,
+          117.073463,
+          117.159531
+        ],
+        "repetitions": 7
+      },
+      "reference_timing": {
+        "median_ns": 116.818619,
+        "mad_ns": 0.05656400000000872,
+        "samples_ns": [
+          116.875183,
+          116.818619,
+          116.431076,
+          116.816093,
+          116.815712,
+          116.954521,
+          116.909584
+        ],
+        "repetitions": 7
+      },
+      "speedup": 0.9973933761112173,
+      "cases": 2261,
+      "iterations_per_trial": {
+        "candidate": 131072,
+        "reference": 131072
+      },
+      "elapsed_seconds": 0.42527655699814204
+    },
+    {
+      "task": "madd_u8",
+      "tier": "small",
+      "valid": true,
+      "score": 100.7843813919664,
+      "memory_bytes": 3382,
+      "tables_bytes": 3334,
+      "scratch_bytes": 48,
+      "validation": {
+        "instructions": 67520,
+        "code_bytes": 285055,
+        "mnemonics": {
+          "movzx": 13280,
+          "mov": 54240
+        },
+        "policy": "zen-move-v1"
+      },
+      "code_sha256": "5ec9de7d05c9a2ecb83afeecb259f1706003f16aca47dfbb7492d825939d5757",
+      "tables_sha256": "cbd927bc007692cf27978d18889e588d8456014f49e567f9b4926d0e636a6fdb",
+      "reference_sha256": "200ab83c5d226f911b94f12ac3a8f6c5c849ba2a139c3e7183b8929e17cc53ce",
+      "fixtures_sha256": "60f74484229e173b23b6bfe6695cfc49a01e3ee4fc614cc9c88956b870d38443",
+      "timing": {
+        "median_ns": 65643.710938,
+        "mad_ns": 3750.050780999998,
+        "samples_ns": [
+          69393.761719,
+          64885.792969,
+          59381.457031,
+          65643.710938,
+          60169.308594,
+          67112.304688,
+          87746.121094
+        ],
+        "repetitions": 7
+      },
+      "reference_timing": {
+        "median_ns": 67086.945312,
+        "mad_ns": 4593.089842999994,
+        "samples_ns": [
+          67086.945312,
+          67687.335938,
+          62493.855469,
+          62845.027344,
+          62229.214844,
+          86248.527344,
+          88658.742188
+        ],
+        "repetitions": 7
+      },
+      "speedup": 1.02198587425021,
+      "cases": 236,
+      "iterations_per_trial": {
+        "candidate": 256,
+        "reference": 256
+      },
+      "elapsed_seconds": 9.753131156001473
+    },
+    {
+      "task": "mul_u8",
+      "tier": "small",
+      "valid": true,
+      "score": 100.0,
+      "memory_bytes": 65536,
+      "tables_bytes": 65536,
+      "scratch_bytes": 0,
+      "validation": {
+        "instructions": 160,
+        "code_bytes": 479,
+        "mnemonics": {
+          "mov": 128,
+          "movzx": 32
+        },
+        "policy": "zen-move-v1"
+      },
+      "code_sha256": "115ee7afa6fe431df040c630d30e9c463e69ff9e970443e51af646cfc2dd3413",
+      "tables_sha256": "4eb7f260f91b54910f4e04a53043163ce44c5a9c96a307c5e84f9bd6c5e41720",
+      "reference_sha256": "948319e697f4cfeb415e5fb584635dd099faadc4b107334deae4ceaf426d9a3d",
+      "fixtures_sha256": "916dccf3b26d60203431558e1177dc686f7310d141213d9346135a65b4815f5d",
+      "timing": {
+        "median_ns": 111.699539,
+        "mad_ns": 6.160552999999993,
+        "samples_ns": [
+          121.003464,
+          117.860092,
+          111.699539,
+          116.386978,
+          110.257614,
+          102.619057,
+          103.831062
+        ],
+        "repetitions": 7
+      },
+      "reference_timing": {
+        "median_ns": 103.866447,
+        "mad_ns": 6.5714029999999894,
+        "samples_ns": [
+          117.142715,
+          103.866447,
+          99.665779,
+          131.563347,
+          120.387985,
+          100.303429,
+          97.295044
+        ],
+        "repetitions": 7
+      },
+      "speedup": 0.9298735512238774,
+      "cases": 2261,
+      "iterations_per_trial": {
+        "candidate": 131072,
+        "reference": 131072
+      },
+      "elapsed_seconds": 0.38172837599995546
+    },
+    {
+      "task": "prefix_u8",
+      "tier": "small",
+      "valid": true,
+      "score": 101.60785146657406,
+      "memory_bytes": 65536,
+      "tables_bytes": 65536,
+      "scratch_bytes": 0,
+      "validation": {
+        "instructions": 321,
+        "code_bytes": 900,
+        "mnemonics": {
+          "mov": 257,
+          "movzx": 64
+        },
+        "policy": "zen-move-v1"
+      },
+      "code_sha256": "0fe9cc2d5c2e24b88e757ed8e53acf259194108396e44df7335777927506b63b",
+      "tables_sha256": "4efe2ac4367e746f5086a4c6563dc12683392f160b5af811384d5dafa4f48218",
+      "reference_sha256": "67bc5f4a93dfd41b3c8087b1bad81da0de06a4dbf369b85aead8dc8b0154c66d",
+      "fixtures_sha256": "ad44cec58035ed0dc7b8e4df4abe35eee4d83b746eb36725a087155b8558edc1",
+      "timing": {
+        "median_ns": 247.01915,
+        "mad_ns": 26.392791999999986,
+        "samples_ns": [
+          247.01915,
+          241.056183,
+          236.381516,
+          220.626358,
+          275.670517,
+          288.077515,
+          289.209274
+        ],
+        "repetitions": 7
+      },
+      "reference_timing": {
+        "median_ns": 258.280182,
+        "mad_ns": 30.995269999999948,
+        "samples_ns": [
+          344.526764,
+          258.280182,
+          246.128174,
+          197.698074,
+          218.23735,
+          288.37059,
+          289.275452
+        ],
+        "repetitions": 7
+      },
+      "speedup": 1.0455876882419846,
+      "cases": 213,
+      "iterations_per_trial": {
+        "candidate": 65536,
+        "reference": 65536
+      },
+      "elapsed_seconds": 0.36701341200387105
+    },
+    {
+      "task": "route_64",
+      "tier": "small",
+      "valid": true,
+      "score": 175.05260001821614,
+      "memory_bytes": 0,
+      "tables_bytes": 0,
+      "scratch_bytes": 0,
+      "validation": {
+        "instructions": 4,
+        "code_bytes": 26,
+        "mnemonics": {
+          "vmovdqu8": 3,
+          "vpermb": 1
+        },
+        "policy": "zen-move-v1"
+      },
+      "code_sha256": "5ecb5b345f96d4147b61279481aeac512f4146d1345444d583e5bc1f09e92e76",
+      "tables_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reference_sha256": "c4f5bb1877a167a10401cc7db7a1cf38763c89fbe585bfc73f53e71fd5f54143",
+      "fixtures_sha256": "cfd5007e4ec6b4c772f766d3358efdf470e03574c6f87ef0661f461f6af5615b",
+      "timing": {
+        "median_ns": 6.029856,
+        "mad_ns": 0.004911000000000776,
+        "samples_ns": [
+          6.031031,
+          6.024811,
+          6.029856,
+          6.018963,
+          6.034767,
+          6.023134,
+          6.033291
+        ],
+        "repetitions": 7
+      },
+      "reference_timing": {
+        "median_ns": 48.30925,
+        "mad_ns": 0.1647649999999956,
+        "samples_ns": [
+          48.518383,
+          49.175636,
+          49.160805,
+          48.278061,
+          48.30925,
+          48.144485,
+          48.212246
+        ],
+        "repetitions": 7
+      },
+      "speedup": 8.011675569035148,
+      "cases": 469,
+      "iterations_per_trial": {
+        "candidate": 2097152,
+        "reference": 262144
+      },
+      "elapsed_seconds": 0.26310414100589696
+    },
+    {
+      "task": "sbox_u8",
+      "tier": "small",
+      "valid": true,
+      "score": 100.0,
+      "memory_bytes": 256,
+      "tables_bytes": 256,
+      "scratch_bytes": 0,
+      "validation": {
+        "instructions": 768,
+        "code_bytes": 3583,
+        "mnemonics": {
+          "movzx": 512,
+          "mov": 256
+        },
+        "policy": "zen-move-v1"
+      },
+      "code_sha256": "2eaeb7f52c2e008140daf89901c047f6633478f7f74fc0137b0c6b2cdc2b8a55",
+      "tables_sha256": "c2d8e5eed6cbebd8625fc18f81486a7733c04f9b0129ffbe974c68b90308b4f2",
+      "reference_sha256": "8e4d374f00dd917ffaf46a0b1090b8e0fa4aa8d47afc54fa748a76a1df369153",
+      "fixtures_sha256": "c5cad0b36b9a9e61151e4462c784584fbd645919a2808fc22167d0dc66ee815a",
+      "timing": {
+        "median_ns": 111.06633,
+        "mad_ns": 0.35681900000000155,
+        "samples_ns": [
+          109.846298,
+          110.324806,
+          111.423149,
+          113.209129,
+          111.160202,
+          111.06633,
+          110.730003
+        ],
+        "repetitions": 7
+      },
+      "reference_timing": {
+        "median_ns": 110.763557,
+        "mad_ns": 0.671440000000004,
+        "samples_ns": [
+          110.763557,
+          109.885277,
+          110.092117,
+          112.720764,
+          111.789742,
+          111.142921,
+          110.710587
+        ],
+        "repetitions": 7
+      },
+      "speedup": 0.9972739443177785,
+      "cases": 214,
+      "iterations_per_trial": {
+        "candidate": 131072,
+        "reference": 131072
+      },
+      "elapsed_seconds": 0.34101176500553265
+    },
+    {
+      "task": "sum_u8",
+      "tier": "small",
+      "valid": true,
+      "score": 100.0,
+      "memory_bytes": 65536,
+      "tables_bytes": 65536,
+      "scratch_bytes": 0,
+      "validation": {
+        "instructions": 258,
+        "code_bytes": 711,
+        "mnemonics": {
+          "mov": 194,
+          "movzx": 64
+        },
+        "policy": "zen-move-v1"
+      },
+      "code_sha256": "c83d02812797caf943e9b258d5a08117d172566be8939bc691a113a613e7d11f",
+      "tables_sha256": "4efe2ac4367e746f5086a4c6563dc12683392f160b5af811384d5dafa4f48218",
+      "reference_sha256": "3bcf2400ad7223176cbc0259b251a8f19bdf40d0e367ed0915ec0b7f7850295d",
+      "fixtures_sha256": "138b5d07a62057b606999f7ac5acefed0c90c6146c17b4fce9463acccb626f7b",
+      "timing": {
+        "median_ns": 270.880432,
+        "mad_ns": 1.4303130000000124,
+        "samples_ns": [
+          272.222839,
+          270.880432,
+          380.992737,
+          260.55072,
+          270.055969,
+          269.450119,
+          292.905212
+        ],
+        "repetitions": 7
+      },
+      "reference_timing": {
+        "median_ns": 270.330688,
+        "mad_ns": 15.482589000000019,
+        "samples_ns": [
+          245.311966,
+          271.524506,
+          316.632278,
+          254.848099,
+          266.873688,
+          270.330688,
+          336.72699
+        ],
+        "repetitions": 7
+      },
+      "speedup": 0.9979705289306391,
+      "cases": 213,
+      "iterations_per_trial": {
+        "candidate": 65536,
+        "reference": 65536
+      },
+      "elapsed_seconds": 0.384929972991813
+    },
+    {
+      "task": "transpose_8x8",
+      "tier": "small",
+      "valid": true,
+      "score": 165.81693591780552,
+      "memory_bytes": 64,
+      "tables_bytes": 64,
+      "scratch_bytes": 0,
+      "validation": {
+        "instructions": 4,
+        "code_bytes": 25,
+        "mnemonics": {
+          "vmovdqu8": 3,
+          "vpermb": 1
+        },
+        "policy": "zen-move-v1"
+      },
+      "code_sha256": "1c07ae7b10dcac249e559301d7712f9452e2f68d286f6ffcc7444bab85d604b2",
+      "tables_sha256": "39a3c4c71b835fa76035b123836cb41ff4b4c5c4098944f4461df15821b127f9",
+      "reference_sha256": "7e4bfc55245ab581248f5bd98b105a2df6159af803074a45c0b63506fd31e36d",
+      "fixtures_sha256": "9289a84aa0007355a23375f42da30ed2a1626677c9279dc78cfe729b112c0b6d",
+      "timing": {
+        "median_ns": 6.174033,
+        "mad_ns": 0.0028900000000007253,
+        "samples_ns": [
+          6.168591,
+          6.174033,
+          6.170254,
+          6.176923,
+          6.177979,
+          6.174396,
+          6.172198
+        ],
+        "repetitions": 7
+      },
+      "reference_timing": {
+        "median_ns": 38.289864,
+        "mad_ns": 0.025834000000003243,
+        "samples_ns": [
+          38.286003,
+          38.383503,
+          38.258144,
+          38.305611,
+          38.289864,
+          38.26403,
+          38.436321
+        ],
+        "repetitions": 7
+      },
+      "speedup": 6.201758882727061,
+      "cases": 213,
+      "iterations_per_trial": {
+        "candidate": 2097152,
+        "reference": 262144
+      },
+      "elapsed_seconds": 0.2290612690121634
+    },
+    {
+      "task": "xor_u8",
+      "tier": "small",
+      "valid": true,
+      "score": 100.1145927877847,
+      "memory_bytes": 65536,
+      "tables_bytes": 65536,
+      "scratch_bytes": 0,
+      "validation": {
+        "instructions": 160,
+        "code_bytes": 479,
+        "mnemonics": {
+          "mov": 128,
+          "movzx": 32
+        },
+        "policy": "zen-move-v1"
+      },
+      "code_sha256": "115ee7afa6fe431df040c630d30e9c463e69ff9e970443e51af646cfc2dd3413",
+      "tables_sha256": "f0a3a4299328c597af0b56eaec469cd984b24aea6b5af3cfaa321e63e76d7033",
+      "reference_sha256": "2d6ca97fd8f4c0f3a5710304c76a1d8ba14f23a1b18e701044bab4affb500921",
+      "fixtures_sha256": "c6261d776eb82cd3ee739d809da70845335414d5616f5f6c36802fa4cc4b7122",
+      "timing": {
+        "median_ns": 116.355171,
+        "mad_ns": 0.1435469999999981,
+        "samples_ns": [
+          116.355171,
+          116.190529,
+          116.313667,
+          116.306641,
+          127.902023,
+          125.932358,
+          116.498718
+        ],
+        "repetitions": 7
+      },
+      "reference_timing": {
+        "median_ns": 116.725441,
+        "mad_ns": 0.26295500000000516,
+        "samples_ns": [
+          116.725441,
+          116.462486,
+          116.629967,
+          119.200127,
+          139.647461,
+          118.16317,
+          116.477394
+        ],
+        "repetitions": 7
+      },
+      "speedup": 1.0031822393179244,
+      "cases": 2261,
+      "iterations_per_trial": {
+        "candidate": 131072,
+        "reference": 131072
+      },
+      "elapsed_seconds": 0.3926383629877819
+    },
+    {
+      "task": "add_u8",
+      "tier": "tiny",
+      "valid": true,
+      "score": 100.07885310163404,
+      "memory_bytes": 3382,
+      "tables_bytes": 3334,
+      "scratch_bytes": 48,
+      "validation": {
+        "instructions": 8608,
+        "code_bytes": 37407,
+        "mnemonics": {
+          "movzx": 1856,
+          "mov": 6752
+        },
+        "policy": "zen-move-v1"
+      },
+      "code_sha256": "13a5c6d4a6e6e7b28ac4618fb50e89d5b2666bafa5f2d0110733d10568ca8331",
+      "tables_sha256": "cbd927bc007692cf27978d18889e588d8456014f49e567f9b4926d0e636a6fdb",
+      "reference_sha256": "74c607d6fe4df76341c544e0f4f73a9a3a485d939930f26caf61942477801171",
+      "fixtures_sha256": "c19e8247d400c98f7ee974eab93b2332e28ca5f231be9a9584cae04cfc4d59a9",
+      "timing": {
+        "median_ns": 10720.189453,
+        "mad_ns": 20.282226999999693,
+        "samples_ns": [
+          11135.603516,
+          10720.189453,
+          10658.793945,
+          10665.300781,
+          10718.516602,
+          10736.137695,
+          10740.47168
+        ],
+        "repetitions": 7
+      },
+      "reference_timing": {
+        "median_ns": 10743.652344,
+        "mad_ns": 33.433594000000085,
+        "samples_ns": [
+          11697.112305,
+          10743.652344,
+          10800.536133,
+          10710.21875,
+          10734.208984,
+          10846.277344,
+          10740.227539
+        ],
+        "repetitions": 7
+      },
+      "speedup": 1.0021886638387192,
+      "cases": 2261,
+      "iterations_per_trial": {
+        "candidate": 1024,
+        "reference": 1024
+      },
+      "elapsed_seconds": 1.2763549569936004
+    },
+    {
+      "task": "madd_u8",
+      "tier": "tiny",
+      "valid": true,
+      "score": 102.32781027359455,
+      "memory_bytes": 3382,
+      "tables_bytes": 3334,
+      "scratch_bytes": 48,
+      "validation": {
+        "instructions": 67520,
+        "code_bytes": 285055,
+        "mnemonics": {
+          "movzx": 13280,
+          "mov": 54240
+        },
+        "policy": "zen-move-v1"
+      },
+      "code_sha256": "5ec9de7d05c9a2ecb83afeecb259f1706003f16aca47dfbb7492d825939d5757",
+      "tables_sha256": "cbd927bc007692cf27978d18889e588d8456014f49e567f9b4926d0e636a6fdb",
+      "reference_sha256": "200ab83c5d226f911b94f12ac3a8f6c5c849ba2a139c3e7183b8929e17cc53ce",
+      "fixtures_sha256": "60f74484229e173b23b6bfe6695cfc49a01e3ee4fc614cc9c88956b870d38443",
+      "timing": {
+        "median_ns": 100515.398438,
+        "mad_ns": 6893.171873999992,
+        "samples_ns": [
+          91695.023438,
+          100515.398438,
+          103369.066406,
+          107408.570312,
+          107089.21875,
+          92491.257812,
+          91469.089844
+        ],
+        "repetitions": 7
+      },
+      "reference_timing": {
+        "median_ns": 107216.648438,
+        "mad_ns": 302.4453119999962,
+        "samples_ns": [
+          88542.859375,
+          107478.546875,
+          107216.648438,
+          107519.09375,
+          107473.695312,
+          81705.34375,
+          77637.734375
+        ],
+        "repetitions": 7
+      },
+      "speedup": 1.0666688895844498,
+      "cases": 236,
+      "iterations_per_trial": {
+        "candidate": 256,
+        "reference": 128
+      },
+      "elapsed_seconds": 9.689048476997414
+    },
+    {
+      "task": "mul_u8",
+      "tier": "tiny",
+      "valid": true,
+      "score": 100.0,
+      "memory_bytes": 3382,
+      "tables_bytes": 3334,
+      "scratch_bytes": 48,
+      "validation": {
+        "instructions": 60544,
+        "code_bytes": 255071,
+        "mnemonics": {
+          "movzx": 11968,
+          "mov": 48576
+        },
+        "policy": "zen-move-v1"
+      },
+      "code_sha256": "52b73b790a529ac597cf448f25e76a9fe1e312cb96a142d13a7f954afbca1a97",
+      "tables_sha256": "cbd927bc007692cf27978d18889e588d8456014f49e567f9b4926d0e636a6fdb",
+      "reference_sha256": "2cdb53d083bc54a2580bfbc0cecf7857660de6ef216e72f02bc19c1d17e1f4ea",
+      "fixtures_sha256": "916dccf3b26d60203431558e1177dc686f7310d141213d9346135a65b4815f5d",
+      "timing": {
+        "median_ns": 54853.683594,
+        "mad_ns": 1979.167969000002,
+        "samples_ns": [
+          52874.515625,
+          55422.53125,
+          52869.542969,
+          52825.203125,
+          57916.695312,
+          55715.230469,
+          54853.683594
+        ],
+        "repetitions": 7
+      },
+      "reference_timing": {
+        "median_ns": 54617.847656,
+        "mad_ns": 952.9335939999946,
+        "samples_ns": [
+          54617.847656,
+          55635.785156,
+          54150.246094,
+          55189.359375,
+          55591.914062,
+          53664.914062,
+          52714.40625
+        ],
+        "repetitions": 7
+      },
+      "speedup": 0.995700636264548,
+      "cases": 2261,
+      "iterations_per_trial": {
+        "candidate": 256,
+        "reference": 256
+      },
+      "elapsed_seconds": 9.586773456001538
+    },
+    {
+      "task": "prefix_u8",
+      "tier": "tiny",
+      "valid": true,
+      "score": 100.0,
+      "memory_bytes": 3382,
+      "tables_bytes": 3334,
+      "scratch_bytes": 48,
+      "validation": {
+        "instructions": 16136,
+        "code_bytes": 68703,
+        "mnemonics": {
+          "mov": 12488,
+          "movzx": 3648
+        },
+        "policy": "zen-move-v1"
+      },
+      "code_sha256": "9e7fd9fdb7feaa2b8ff18306664d0343f4f1c6b036430090c1fe6a560beb8fca",
+      "tables_sha256": "cbd927bc007692cf27978d18889e588d8456014f49e567f9b4926d0e636a6fdb",
+      "reference_sha256": "e22d8c059f860ed65657ef177c5c65df11e07f03b448fdb43af00c47b8a5de69",
+      "fixtures_sha256": "ad44cec58035ed0dc7b8e4df4abe35eee4d83b746eb36725a087155b8558edc1",
+      "timing": {
+        "median_ns": 26696.595703,
+        "mad_ns": 13.384764999998879,
+        "samples_ns": [
+          26531.261719,
+          26683.210938,
+          26712.308594,
+          26696.595703,
+          26693.267578,
+          26702.994141,
+          26721.427734
+        ],
+        "repetitions": 7
+      },
+      "reference_timing": {
+        "median_ns": 26651.392578,
+        "mad_ns": 11.056640999999217,
+        "samples_ns": [
+          26487.939453,
+          26643.722656,
+          26650.570312,
+          26668.064453,
+          26651.392578,
+          26662.449219,
+          26727.396484
+        ],
+        "repetitions": 7
+      },
+      "speedup": 0.9983067831755448,
+      "cases": 213,
+      "iterations_per_trial": {
+        "candidate": 512,
+        "reference": 512
+      },
+      "elapsed_seconds": 1.7764946860115742
+    },
+    {
+      "task": "route_64",
+      "tier": "tiny",
+      "valid": true,
+      "score": 174.01770613239296,
+      "memory_bytes": 0,
+      "tables_bytes": 0,
+      "scratch_bytes": 0,
+      "validation": {
+        "instructions": 4,
+        "code_bytes": 26,
+        "mnemonics": {
+          "vmovdqu8": 3,
+          "vpermb": 1
+        },
+        "policy": "zen-move-v1"
+      },
+      "code_sha256": "5ecb5b345f96d4147b61279481aeac512f4146d1345444d583e5bc1f09e92e76",
+      "tables_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reference_sha256": "c4f5bb1877a167a10401cc7db7a1cf38763c89fbe585bfc73f53e71fd5f54143",
+      "fixtures_sha256": "cfd5007e4ec6b4c772f766d3358efdf470e03574c6f87ef0661f461f6af5615b",
+      "timing": {
+        "median_ns": 9.001983,
+        "mad_ns": 0.00707499999999861,
+        "samples_ns": [
+          9.013229,
+          9.019922,
+          9.060554,
+          8.998013,
+          8.996222,
+          9.001983,
+          8.994908
+        ],
+        "repetitions": 7
+      },
+      "reference_timing": {
+        "median_ns": 70.080982,
+        "mad_ns": 0.08774999999999977,
+        "samples_ns": [
+          70.091988,
+          70.076969,
+          70.080982,
+          70.168732,
+          70.20546,
+          69.940144,
+          69.950424
+        ],
+        "repetitions": 7
+      },
+      "speedup": 7.785060469454343,
+      "cases": 469,
+      "iterations_per_trial": {
+        "candidate": 2097152,
+        "reference": 262144
+      },
+      "elapsed_seconds": 0.3821428190130973
+    },
+    {
+      "task": "sbox_u8",
+      "tier": "tiny",
+      "valid": true,
+      "score": 100.0,
+      "memory_bytes": 256,
+      "tables_bytes": 256,
+      "scratch_bytes": 0,
+      "validation": {
+        "instructions": 768,
+        "code_bytes": 3583,
+        "mnemonics": {
+          "movzx": 512,
+          "mov": 256
+        },
+        "policy": "zen-move-v1"
+      },
+      "code_sha256": "2eaeb7f52c2e008140daf89901c047f6633478f7f74fc0137b0c6b2cdc2b8a55",
+      "tables_sha256": "c2d8e5eed6cbebd8625fc18f81486a7733c04f9b0129ffbe974c68b90308b4f2",
+      "reference_sha256": "8e4d374f00dd917ffaf46a0b1090b8e0fa4aa8d47afc54fa748a76a1df369153",
+      "fixtures_sha256": "c5cad0b36b9a9e61151e4462c784584fbd645919a2808fc22167d0dc66ee815a",
+      "timing": {
+        "median_ns": 103.361961,
+        "mad_ns": 7.56211900000001,
+        "samples_ns": [
+          107.516762,
+          110.92408,
+          109.476868,
+          103.361961,
+          74.263802,
+          74.323723,
+          73.178307
+        ],
+        "repetitions": 7
+      },
+      "reference_timing": {
+        "median_ns": 97.874603,
+        "mad_ns": 16.40649400000001,
+        "samples_ns": [
+          104.971672,
+          114.281097,
+          113.712013,
+          97.874603,
+          75.364517,
+          72.919861,
+          73.942535
+        ],
+        "repetitions": 7
+      },
+      "speedup": 0.9469112432957807,
+      "cases": 214,
+      "iterations_per_trial": {
+        "candidate": 131072,
+        "reference": 131072
+      },
+      "elapsed_seconds": 0.34664399799657986
+    },
+    {
+      "task": "sum_u8",
+      "tier": "tiny",
+      "valid": true,
+      "score": 100.0,
+      "memory_bytes": 3382,
+      "tables_bytes": 3334,
+      "scratch_bytes": 48,
+      "validation": {
+        "instructions": 13994,
+        "code_bytes": 60135,
+        "mnemonics": {
+          "mov": 11354,
+          "movzx": 2640
+        },
+        "policy": "zen-move-v1"
+      },
+      "code_sha256": "c821c325e5f90c0a8458e27dd27b6d61f9d5b282f55d04ffa4a62eaa38789ee0",
+      "tables_sha256": "cbd927bc007692cf27978d18889e588d8456014f49e567f9b4926d0e636a6fdb",
+      "reference_sha256": "0a41f053e7852aacf9b2bf7ae210b1ccf3124d304a7f1807dc4dae9cd2a532a6",
+      "fixtures_sha256": "138b5d07a62057b606999f7ac5acefed0c90c6146c17b4fce9463acccb626f7b",
+      "timing": {
+        "median_ns": 25712.431641,
+        "mad_ns": 13.912109999997483,
+        "samples_ns": [
+          25690.947266,
+          25698.519531,
+          25715.974609,
+          25694.251953,
+          25727.244141,
+          25712.431641,
+          25721.236328
+        ],
+        "repetitions": 7
+      },
+      "reference_timing": {
+        "median_ns": 25688.166016,
+        "mad_ns": 2.875,
+        "samples_ns": [
+          25688.166016,
+          25691.023438,
+          25679.029297,
+          25687.226562,
+          25685.291016,
+          25697.5,
+          25691.123047
+        ],
+        "repetitions": 7
+      },
+      "speedup": 0.9990562687598435,
+      "cases": 213,
+      "iterations_per_trial": {
+        "candidate": 512,
+        "reference": 512
+      },
+      "elapsed_seconds": 1.6612084730004426
+    },
+    {
+      "task": "transpose_8x8",
+      "tier": "tiny",
+      "valid": true,
+      "score": 167.91450603431332,
+      "memory_bytes": 64,
+      "tables_bytes": 64,
+      "scratch_bytes": 0,
+      "validation": {
+        "instructions": 4,
+        "code_bytes": 25,
+        "mnemonics": {
+          "vmovdqu8": 3,
+          "vpermb": 1
+        },
+        "policy": "zen-move-v1"
+      },
+      "code_sha256": "1c07ae7b10dcac249e559301d7712f9452e2f68d286f6ffcc7444bab85d604b2",
+      "tables_sha256": "39a3c4c71b835fa76035b123836cb41ff4b4c5c4098944f4461df15821b127f9",
+      "reference_sha256": "7e4bfc55245ab581248f5bd98b105a2df6159af803074a45c0b63506fd31e36d",
+      "fixtures_sha256": "9289a84aa0007355a23375f42da30ed2a1626677c9279dc78cfe729b112c0b6d",
+      "timing": {
+        "median_ns": 5.946978,
+        "mad_ns": 0.31219399999999986,
+        "samples_ns": [
+          6.899868,
+          6.611771,
+          5.946648,
+          5.636853,
+          5.634784,
+          5.946978,
+          6.266514
+        ],
+        "repetitions": 7
+      },
+      "reference_timing": {
+        "median_ns": 39.090252,
+        "mad_ns": 0.7106100000000026,
+        "samples_ns": [
+          50.027542,
+          49.376209,
+          44.554825,
+          38.457916,
+          38.379642,
+          38.489216,
+          39.090252
+        ],
+        "repetitions": 7
+      },
+      "speedup": 6.57312873866357,
+      "cases": 213,
+      "iterations_per_trial": {
+        "candidate": 2097152,
+        "reference": 262144
+      },
+      "elapsed_seconds": 0.25297116400906816
+    },
+    {
+      "task": "xor_u8",
+      "tier": "tiny",
+      "valid": true,
+      "score": 100.0,
+      "memory_bytes": 3382,
+      "tables_bytes": 3334,
+      "scratch_bytes": 48,
+      "validation": {
+        "instructions": 3456,
+        "code_bytes": 15807,
+        "mnemonics": {
+          "movzx": 832,
+          "mov": 2624
+        },
+        "policy": "zen-move-v1"
+      },
+      "code_sha256": "1b61e132e2798b1d647e4cb1d1592f1d2fc64625ce71ec36677b829f4fb5a32e",
+      "tables_sha256": "cbd927bc007692cf27978d18889e588d8456014f49e567f9b4926d0e636a6fdb",
+      "reference_sha256": "cbdeae80d4f3b0c9836908cd32583cd1aecf62243aed4aa22826a2e5b6ae5537",
+      "fixtures_sha256": "c6261d776eb82cd3ee739d809da70845335414d5616f5f6c36802fa4cc4b7122",
+      "timing": {
+        "median_ns": 2028.151978,
+        "mad_ns": 1.1252439999998387,
+        "samples_ns": [
+          2025.165405,
+          2025.724243,
+          2027.379028,
+          2029.277222,
+          2046.416382,
+          2028.151978,
+          2028.383057
+        ],
+        "repetitions": 7
+      },
+      "reference_timing": {
+        "median_ns": 2023.006714,
+        "mad_ns": 2.426392000000078,
+        "samples_ns": [
+          2026.316162,
+          2021.224731,
+          2024.300781,
+          2023.006714,
+          2034.252319,
+          2020.580322,
+          2020.102051
+        ],
+        "repetitions": 7
+      },
+      "speedup": 0.9974630776905221,
+      "cases": 2261,
+      "iterations_per_trial": {
+        "candidate": 8192,
+        "reference": 8192
+      },
+      "elapsed_seconds": 0.7552796070085606
+    }
+  ],
+  "complete": true
+}

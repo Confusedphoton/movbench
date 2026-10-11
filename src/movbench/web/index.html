@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#080808" />
+    <meta
+      name="description"
+      content="MOVBench — a move-only LLM kernel benchmark. Compare correctness, speed, and memory under absurd constraints."
+    />
+    <title>MOVBench · Compute by moving data</title>
+    <link rel="icon" href="/favicon.svg" />
+    <link rel="stylesheet" href="/style.css" />
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="MOVBench home"
+        ><span class="brand-mark">m<span>o</span>v</span
+        ><strong>bench</strong></a
+      >
+      <nav aria-label="Views">
+        <button class="active" data-view="overview">Leaderboard</button>
+        <button data-view="kernels">Kernel results</button>
+        <button data-view="policy">Instruction policy</button>
+      </nav>
+      <div class="top-actions">
+        <span class="target-badge" id="target-badge">ZEN 5 · AVX-512</span
+        ><button
+          id="theme"
+          class="icon-button"
+          aria-label="Switch to light mode"
+          title="Change theme"
+        >
+          ◐</button
+        ><button
+          id="export"
+          class="icon-button"
+          aria-label="Export results as JSON"
+          title="Export results"
+        >
+          ↓
+        </button>
+      </div>
+    </header>
+    <div class="layout">
+      <main>
+        <div class="page-heading">
+          <div>
+            <div class="eyebrow">THE MOVE-ONLY KERNEL BENCHMARK</div>
+            <h1>Computation, by relocation.</h1>
+            <p>
+              Nine kernels. Four memory budgets. No arithmetic instructions.
+            </p>
+          </div>
+          <button id="refresh" class="refresh">
+            <span class="live-dot"></span> Refresh results ↻
+          </button>
+        </div>
+        <div id="error" class="error" role="alert" hidden></div>
+        <section class="stats" aria-label="Selected cohort statistics">
+          <div>
+            <span>Implementations</span><strong id="stat-models">—</strong
+            ><small>latest run per entrant</small>
+          </div>
+          <div>
+            <span>Best mean score</span><strong id="stat-score">—</strong
+            ><small>points / task & tier</small>
+          </div>
+          <div>
+            <span>Valid kernels</span><strong id="stat-valid">—</strong
+            ><small>exact output + legal instructions</small>
+          </div>
+          <div>
+            <span>Memory tiers</span
+            ><strong>4 <em>KiB</em> – 16 <em>MiB</em></strong
+            ><small>tables + scratch per kernel</small>
+          </div>
+        </section>
+        <section id="overview-view">
+          <div class="section-heading">
+            <h2>Score vs. memory budget</h2>
+            <div class="chart-controls">
+              <span id="uncertainty-note">Within-run bootstrap IQR</span
+              ><span class="pill">LOG₂ MEMORY</span>
+            </div>
+          </div>
+          <div class="chart-wrap">
+            <svg
+              id="chart"
+              viewBox="0 0 960 280"
+              role="img"
+              aria-label="Mean benchmark score by memory budget"
+            ></svg>
+            <div id="chart-tooltip" class="tooltip" hidden></div>
+            <div id="chart-empty" class="empty" hidden>
+              <span class="empty-symbol">↔</span
+              ><strong>No measured runs yet</strong>
+              <p>
+                Generate a submission, run the kernels, and compare results
+                here.
+              </p>
+              <code>uv run movbench run submissions/reference</code>
+            </div>
+          </div>
+          <div id="chart-legend" class="legend"></div>
+          <div class="section-heading table-heading">
+            <h2>Implementations <span id="row-count"></span></h2>
+            <div class="metric-toggle" role="group" aria-label="Ranking metric">
+              <button class="active" data-metric="score">Log score</button
+              ><button data-metric="elo">Elo</button>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Implementation</th>
+                  <th id="metric-heading">Mean score ↓</th>
+                  <th>Speedup</th>
+                  <th>Valid / total</th>
+                  <th>Max memory</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="leaderboard"></tbody>
+            </table>
+          </div>
+          <p class="table-note">
+            Speedup: geometric mean against the legal reference for each task
+            and tier. Invalid cells earn zero points.
+          </p>
+        </section>
+        <section id="kernels-view" hidden>
+          <div class="section-heading">
+            <h2>Kernel results</h2>
+            <span class="muted"
+              >Median wall ns / invocation · MAD across trials</span
+            >
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Implementation / kernel</th>
+                  <th>Tier</th>
+                  <th>Status</th>
+                  <th>Score</th>
+                  <th>Time ± MAD</th>
+                  <th>Speedup</th>
+                  <th>Memory</th>
+                </tr>
+              </thead>
+              <tbody id="kernel-results"></tbody>
+            </table>
+          </div>
+          <p class="table-note">
+            Input copy, kernel dispatch, and loop overhead are included.
+            Compilation and allocation are outside the timed region.
+          </p>
+        </section>
+        <section id="policy-view" hidden>
+          <div class="section-heading">
+            <h2>Data movement only</h2>
+            <span class="pill" id="policy-id"></span>
+          </div>
+          <p class="policy-intro">
+            A maintained, exact whitelist of instructions that copy or rearrange
+            existing bits. Arithmetic, comparisons, shifts, branches, calls, and
+            submission-supplied returns are rejected after assembling.
+          </p>
+          <div class="abi">
+            <code>rdi <span>input</span></code
+            ><code>rsi <span>output</span></code
+            ><code>rdx <span>tables</span></code
+            ><code>rcx <span>scratch</span></code>
+          </div>
+          <div id="policy-groups"></div>
+          <p class="table-note">
+            One trusted RET is appended by the harness. Masked zeroing and
+            scalar zero/sign extension are permitted by this policy.
+          </p>
+        </section>
+        <details class="methodology">
+          <summary>How the benchmark works <span>+</span></summary>
+          <div>
+            <p>
+              A correct, compliant kernel earns 100 points. Each doubling of
+              speed over the task's tier-specific move-only reference earns 25
+              more. Slower valid kernels retain their 100 points.
+            </p>
+            <code>100 + 25 × max(0, log₂(reference / candidate))</code>
+            <p>
+              Native measurements use CPU affinity, warm-up, duration
+              calibration, alternating candidate/reference batches, and exact
+              oracle checks. The median summarizes trial batch means; MAD is not
+              a confidence interval. Results describe a warm-cache,
+              rotating-input workload.
+            </p>
+            <p>
+              Elo starts at 1,500 with K = 16 over 16 deterministic
+              simultaneous-update rounds; timings within 3% are draws. Rankings
+              use the latest complete run per entrant within the selected
+              hardware and measurement cohort.
+            </p>
+          </div>
+        </details>
+        <footer>
+          <span
+            >MOVBench <span class="footer-dot">·</span> An unreasonable
+            constraint. A measurable result.</span
+          ><a
+            href="https://github.com/Confusedphoton/movbench"
+            target="_blank"
+            rel="noreferrer"
+            >Source & methodology ↗</a
+          >
+        </footer>
+      </main>
+      <aside aria-label="Benchmark filters">
+        <div class="side-heading">
+          <h2>Explore results</h2>
+          <button id="reset" aria-label="Reset filters" title="Reset filters">
+            ↺
+          </button>
+        </div>
+        <label class="search"
+          ><span>⌕</span
+          ><input
+            id="search"
+            placeholder="Find implementation…"
+            aria-label="Find implementation"
+          /><kbd>/</kbd></label
+        >
+        <label class="control-label" for="cohort">Measurement cohort</label
+        ><select id="cohort">
+          <option>No measured runs</option>
+        </select>
+        <p class="side-note" id="cohort-note">
+          Comparable hardware and settings stay together.
+        </p>
+        <div class="filter-section">
+          <h3>Memory budget</h3>
+          <div id="tier-filters">
+            <button class="filter active" data-tier="">
+              <span>All tiers</span> <code>4</code></button
+            ><button class="filter" data-tier="tiny">
+              <span>Tiny</span><code>4 KiB</code></button
+            ><button class="filter" data-tier="small">
+              <span>Small</span><code>64 KiB</code></button
+            ><button class="filter" data-tier="medium">
+              <span>Medium</span><code>1 MiB</code></button
+            ><button class="filter" data-tier="large">
+              <span>Large</span><code>16 MiB</code>
+            </button>
+          </div>
+        </div>
+        <div class="filter-section">
+          <label class="control-label" for="task">Kernel</label
+          ><select id="task">
+            <option value="">All nine kernels</option>
+          </select>
+        </div>
+        <div class="filter-section policy-note">
+          <h3>What counts as a move?</h3>
+          <p class="side-note">
+            Loads and stores. Shuffles and permutations. Broadcasts, gathers,
+            and masked selection.
+          </p>
+          <button class="text-button" id="show-policy">
+            Explore instruction policy ↗
+          </button>
+        </div>
+        <div class="sidebar-bottom">
+          <div class="eyebrow">START A RUN</div>
+          <p>Give your compiler less.<br />See what it makes of it.</p>
+          <code id="start-command"
+            >uv run movbench generate<br />
+            --model your-model<br />
+            --out submissions/yours</code
+          ><span class="version">v0.1 · native x86-64 · exact uint8</span>
+        </div>
+      </aside>
+    </div>
+    <dialog id="detail">
+      <div class="dialog-heading">
+        <h2 id="detail-title">Run details</h2>
+        <button id="close-detail" aria-label="Close run details">×</button>
+      </div>
+      <div id="detail-content"></div>
+    </dialog>
+  </body>
+</html>
